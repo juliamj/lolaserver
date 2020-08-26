@@ -15,30 +15,30 @@ router
       .catch((err) => next(new Error(err)));
   })
 
-  .get("/:id", async function (req, res, next) {
+  .get("/user/:id", async function (req, res, next) {
     const { id } = req.params;
     await User.findById(id)
       .then((results) => res.json(results))
       .catch((err) => next(new Error(err)));
   })
 
-//   .put("/:id", async function (req, res, next) {
-//     const { id } = req.params
-//     const { body } = req
-//     await User.findByIdAndUpdate(id, body, {
-//       new: true,
-//       useFindAndModify: false,
-//     })
-//       .then((updatedDocument) => res.json(updatedDocument))
-//       .catch((err) => next(new Error(err)));
-//   })
-//   .delete("/:id", async function (req, res) {
-//     const { id } = req.params;
-//     await User.findByIdAndDelete(id, {useFindAndModify: false})
-//       .then((response) => res.json(response))
-//       .catch((err) => next(new Error(err)));
-//     res.send(`Deleted User ${id}`);
-//   });
+  .put("/:id", async function (req, res, next) {
+    const { id } = req.params
+    const { body } = req
+    await User.findByIdAndUpdate(id, body, {
+      new: true,
+      useFindAndModify: false,
+    })
+      .then((updatedDocument) => res.json(updatedDocument))
+      .catch((err) => next(new Error(err)));
+  })
+  .delete("/:id", async function (req, res) {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id, {useFindAndModify: false})
+      .then((response) => res.json(response))
+      .catch((err) => next(new Error(err)));
+    res.send(`Deleted User ${id}`);
+  });
 
 // Login page
 router.get('/login', (req, res) => res.render('login'))
