@@ -8,44 +8,37 @@ const User = require('../models/User')
 
 // CRUD METHODS
 router
-    .get("/", async function (req, res, next) {
-        //we use async/await to wait for this to happen randomly
-        await User.find()
-            .then((allDocuments) => res.json(allDocuments)) //await should be called 'waitfor'
-            .catch((err) => next(new Error(err)));
-    })
+  .get("/", async function (req, res, next) {
+    //we use async/await to wait for this to happen randomly
+    await User.find()
+      .then((allDocuments) => res.json(allDocuments)) //await should be called 'waitfor'
+      .catch((err) => next(new Error(err)));
+  })
 
-    .get("/user/:id", async function (req, res, next) {
-        const { id } = req.params;
-        await User.findById(id)
-            .then((results) => res.json(results))
-            .catch((err) => next(new Error(err)));
-    })
-    // .post("/", (async (req, res, next) => {
-    //     const doc = { ...req.body, createdAt: Date.now() }
-    //     await User.create(doc)
-    //         .then(newDocument => res.json(newDocument))
-    //         .catch(err => next(new Error(err)))
-    // }))
+  .get("/user/:id", async function (req, res, next) {
+    const { id } = req.params;
+    await User.findById(id)
+      .then((results) => res.json(results))
+      .catch((err) => next(new Error(err)));
+  })
 
-    .put("/users/:id", async (req, res, next) => {
-        const { id } = req.params
-        const { body } = req
-        await User.findByIdAndUpdate(id, body, {
-            new: true,
-            useFindAndModify: false,
-        })
-            .then((updatedDocument) => res.json(updatedDocument))
-            .catch((err) => next(new Error(err)));
+  .put("/:id", async function (req, res, next) {
+    const { id } = req.params
+    const { body } = req
+    await User.findByIdAndUpdate(id, body, {
+      new: true,
+      useFindAndModify: false,
     })
-
-//   .delete("/:id", async function (req, res) {
-//     const { id } = req.params;
-//     await User.findByIdAndDelete(id, {useFindAndModify: false})
-//       .then((response) => res.json(response))
-//       .catch((err) => next(new Error(err)));
-//     res.send(`Deleted User ${id}`);
-//   });
+      .then((updatedDocument) => res.json(updatedDocument))
+      .catch((err) => next(new Error(err)));
+  })
+  .delete("/:id", async function (req, res) {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id, {useFindAndModify: false})
+      .then((response) => res.json(response))
+      .catch((err) => next(new Error(err)));
+    res.send(`Deleted User ${id}`);
+  });
 
 // Login page
 router.get('/login', (req, res) => res.render('login'))
