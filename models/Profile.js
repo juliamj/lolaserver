@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const ProfileSchema = new mongoose.Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    required: true,
+    required: false,
+  },
+  name: {
+      type: String,
+      required: false,
   },
   gender: {
     type: String,
@@ -32,19 +37,19 @@ const ProfileSchema = new mongoose.Schema({
     required: false,
   },
   nativelang: {
-    type: String,
+    type: Array,
     min: 8,
     max: 30,
     required: false,
   },
   otherlangs: {
-    type: String,
+    type: Array,
     min: 8,
     max: 30,
     required: false,
   },
   learnlangs: {
-    type: String,
+    type: Array,
     min: 8,
     max: 30,
     required: false,
@@ -60,6 +65,6 @@ const ProfileSchema = new mongoose.Schema({
   },
 });
 
-const Profile = mongoose.model("profiles", ProfileSchema);
+const Profile = mongoose.model("Profiles", ProfileSchema);
 
 module.exports = Profile;
