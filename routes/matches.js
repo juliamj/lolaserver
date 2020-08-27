@@ -16,6 +16,7 @@ router.get("/", ensureAuthenticated, (req, res) =>
 
 //return users within location filter parameters
 const locationFilter = (mainUser, restOfUsers) => {
+  console.log(cities.)
   const usersInArea = restOfUsers.filter((otherUser) => {
     return otherUser.location === mainUser.location;
   });
