@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
 const Profile = require("../models/Profile");
-const fs = require('fs')
-const cities = ('../cities.json')
-
+const fs = require("fs");
+const cities = require("../data/cities.json");
 
 // TO DO - how to serialize user to get the user.id
 
@@ -15,13 +14,22 @@ router.get("/", ensureAuthenticated, (req, res) =>
 );
 
 //return users within location filter parameters
-const locationFilter = (mainUser, restOfUsers) => {
-  console.log(cities)
-  const usersInArea = restOfUsers.filter((otherUser) => {
-    return otherUser.location === mainUser.location;
-  });
-  return usersInArea;
-};
+
+// const locationFilter = (mainUser, restOfUsers) => {
+//   const usersInArea = restOfUsers.filter((otherUser) => {
+//     return otherUser.location === mainUser.location;
+//   });
+//   return usersInArea;
+// };
+//return users with
+// const languageFilter = (mainUser, restOfUsers) => {
+//   const mainUserNativeLangs = mainUser.nativelang;
+//   const othersLearnLangs = restOfUsers.learnlangs;
+
+//   const matchingUsers = othersLearnLangs.includes(mainUserNativeLangs);
+//   console.log(matchingUsers)
+// };
+
 //calculate matches
 const score = (interests, otherInterests) => {
   let score = 0;
@@ -49,10 +57,8 @@ router.get("/:id", async function (req, res, next) {
     (u) => u.userId && u.userId.toString() !== id
   );
 
-
-
   const scoredUsers = restOfUsers
-    .filter(otherUser => otherUser.location === mainUser.location)
+    .filter((otherUser) => otherUser.location === mainUser.location)
     .map((u) => {
       console.log(mainUser);
       return {
