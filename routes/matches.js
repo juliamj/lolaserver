@@ -3,6 +3,8 @@ const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
 const Profile = require("../models/Profile");
 const fs = require('fs')
+const cities = ('../cities.json')
+
 
 // TO DO - how to serialize user to get the user.id
 
