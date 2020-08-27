@@ -11,7 +11,7 @@
     },
     {
         "Rang (2019)\n": 1,
-        "Name": "Berlin1",
+        "Name": "Berlin",
         "Einwohnerzahl": ".mw-parser-output .numericFormat-1000::after{content:\".\"}.mw-parser-output .numericFormat-minus>span,.mw-parser-output .numericFormat-dec>span{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}.mw-parser-output .numericFormat-minus::after{content:\"−\"}.mw-parser-output .numericFormat-dec::after{content:\",\"}.mw-parser-output .numericFormat-fractpart{margin-right:0.2em}4321521",
         "Fläche in km² (2016)\n": 3336026,
         "Ew./km² (2018)\n": 3274016,
@@ -21,7 +21,7 @@
     },
     {
         "Rang (2019)\n": 2,
-        "Name": "Hamburg1",
+        "Name": "Hamburg",
         "Einwohnerzahl": 1698388,
         "Fläche in km² (2016)\n": 1605606,
         "Ew./km² (2018)\n": 1836958,
@@ -41,7 +41,7 @@
     },
     {
         "Rang (2019)\n": 4,
-        "Name": "Köln1",
+        "Name": "Köln",
         "Einwohnerzahl": 768352,
         "Fläche in km² (2016)\n": 594941,
         "Ew./km² (2018)\n": 801142,
@@ -151,7 +151,7 @@
     },
     {
         "Rang (2019)\n": 15,
-        "Name": "Duisburg2",
+        "Name": "Duisburg",
         "Einwohnerzahl": 433530,
         "Fläche in km² (2016)\n": 410783,
         "Ew./km² (2018)\n": 503641,
@@ -171,7 +171,7 @@
     },
     {
         "Rang (2019)\n": 17,
-        "Name": "Wuppertal3",
+        "Name": "Wuppertal",
         "Einwohnerzahl": 399718,
         "Fläche in km² (2016)\n": 363224,
         "Ew./km² (2018)\n": 421378,
@@ -181,7 +181,7 @@
     },
     {
         "Rang (2019)\n": 18,
-        "Name": "Bielefeld1",
+        "Name": "Bielefeld",
         "Einwohnerzahl": 126711,
         "Fläche in km² (2016)\n": 153613,
         "Ew./km² (2018)\n": 174527,
@@ -191,7 +191,7 @@
     },
     {
         "Rang (2019)\n": 19,
-        "Name": "Bonn1",
+        "Name": "Bonn",
         "Einwohnerzahl": 98702,
         "Fläche in km² (2016)\n": 115394,
         "Ew./km² (2018)\n": 146889,
@@ -201,7 +201,7 @@
     },
     {
         "Rang (2019)\n": 20,
-        "Name": "Münster1",
+        "Name": "Münster",
         "Einwohnerzahl": 132760,
         "Fläche in km² (2016)\n": 118496,
         "Ew./km² (2018)\n": 180871,
@@ -241,7 +241,7 @@
     },
     {
         "Rang (2019)\n": 24,
-        "Name": "Wiesbaden1",
+        "Name": "Wiesbaden",
         "Einwohnerzahl": 165646,
         "Fläche in km² (2016)\n": 220741,
         "Ew./km² (2018)\n": 257293,
@@ -251,7 +251,7 @@
     },
     {
         "Rang (2019)\n": 25,
-        "Name": "Mönchen­gladbach1, 5",
+        "Name": "Mönchen­gladbach, 5",
         "Einwohnerzahl": 128418,
         "Fläche in km² (2016)\n": 124879,
         "Ew./km² (2018)\n": 152414,
@@ -261,7 +261,7 @@
     },
     {
         "Rang (2019)\n": 26,
-        "Name": "Gelsenkirchen4",
+        "Name": "Gelsenkirchen",
         "Einwohnerzahl": 317505,
         "Fläche in km² (2016)\n": 315460,
         "Ew./km² (2018)\n": 388608,
@@ -281,7 +281,7 @@
     },
     {
         "Rang (2019)\n": 28,
-        "Name": "Aachen1",
+        "Name": "Aachen",
         "Einwohnerzahl": 159631,
         "Fläche in km² (2016)\n": 129811,
         "Ew./km² (2018)\n": 170367,
@@ -301,7 +301,7 @@
     },
     {
         "Rang (2019)\n": 30,
-        "Name": "Chemnitz6",
+        "Name": "Chemnitz",
         "Einwohnerzahl": 334713,
         "Fläche in km² (2016)\n": 293373,
         "Ew./km² (2018)\n": 286329,
@@ -311,7 +311,7 @@
     },
     {
         "Rang (2019)\n": 31,
-        "Name": "Halle (Saale)8",
+        "Name": "Halle (Saale)",
         "Einwohnerzahl": 217480,
         "Fläche in km² (2016)\n": 289119,
         "Ew./km² (2018)\n": 277855,
@@ -331,7 +331,7 @@
     },
     {
         "Rang (2019)\n": 33,
-        "Name": "Freiburg im Breisgau1",
+        "Name": "Freiburg im Breisgau",
         "Einwohnerzahl": 108487,
         "Fläche in km² (2016)\n": 109717,
         "Ew./km² (2018)\n": 141637,
@@ -341,7 +341,7 @@
     },
     {
         "Rang (2019)\n": 34,
-        "Name": "Krefeld7",
+        "Name": "Krefeld",
         "Einwohnerzahl": 170205,
         "Fläche in km² (2016)\n": 171875,
         "Ew./km² (2018)\n": 211479,
@@ -351,7 +351,7 @@
     },
     {
         "Rang (2019)\n": 35,
-        "Name": "Mainz1",
+        "Name": "Mainz",
         "Einwohnerzahl": 154033,
         "Fläche in km² (2016)\n": 88369,
         "Ew./km² (2018)\n": 133089,
@@ -391,7 +391,7 @@
     },
     {
         "Rang (2019)\n": 39,
-        "Name": "Rostock1",
+        "Name": "Rostock",
         "Einwohnerzahl": 118048,
         "Fläche in km² (2016)\n": 133109,
         "Ew./km² (2018)\n": 158630,
@@ -401,7 +401,7 @@
     },
     {
         "Rang (2019)\n": 40,
-        "Name": "Kassel1",
+        "Name": "Kassel",
         "Einwohnerzahl": 211624,
         "Fläche in km² (2016)\n": 162132,
         "Ew./km² (2018)\n": 206354,
@@ -421,7 +421,7 @@
     },
     {
         "Rang (2019)\n": 42,
-        "Name": "Saarbrücken1",
+        "Name": "Saarbrücken",
         "Einwohnerzahl": 131285,
         "Fläche in km² (2016)\n": 111450,
         "Ew./km² (2018)\n": 129801,
@@ -451,7 +451,7 @@
     },
     {
         "Rang (2019)\n": 45,
-        "Name": "Ludwigshafen am Rhein1",
+        "Name": "Ludwigshafen am Rhein",
         "Einwohnerzahl": 143934,
         "Fläche in km² (2016)\n": 123869,
         "Ew./km² (2018)\n": 164657,
@@ -481,7 +481,7 @@
     },
     {
         "Rang (2019)\n": 48,
-        "Name": "Osnabrück1",
+        "Name": "Osnabrück",
         "Einwohnerzahl": 97918,
         "Fläche in km² (2016)\n": 109538,
         "Ew./km² (2018)\n": 135821,
@@ -511,7 +511,7 @@
     },
     {
         "Rang (2019)\n": 51,
-        "Name": "Darmstadt1",
+        "Name": "Darmstadt",
         "Einwohnerzahl": 110552,
         "Fläche in km² (2016)\n": 94788,
         "Ew./km² (2018)\n": 138736,
@@ -531,7 +531,7 @@
     },
     {
         "Rang (2019)\n": 53,
-        "Name": "Herne1",
+        "Name": "Herne",
         "Einwohnerzahl": 94639,
         "Fläche in km² (2016)\n": 111591,
         "Ew./km² (2018)\n": 113252,
@@ -591,7 +591,7 @@
     },
     {
         "Rang (2019)\n": 59,
-        "Name": "Fürth1",
+        "Name": "Fürth",
         "Einwohnerzahl": 78838,
         "Fläche in km² (2016)\n": 99890,
         "Ew./km² (2018)\n": 98615,
@@ -611,7 +611,7 @@
     },
     {
         "Rang (2019)\n": 61,
-        "Name": "Ulm1",
+        "Name": "Ulm",
         "Einwohnerzahl": 68585,
         "Fläche in km² (2016)\n": 71132,
         "Ew./km² (2018)\n": 90383,
@@ -641,7 +641,7 @@
     },
     {
         "Rang (2019)\n": 64,
-        "Name": "Wolfsburg9",
+        "Name": "Wolfsburg",
         "Einwohnerzahl": 6797,
         "Fläche in km² (2016)\n": 25422,
         "Ew./km² (2018)\n": 62577,
@@ -691,7 +691,7 @@
     },
     {
         "Rang (2019)\n": 69,
-        "Name": "Bremer­haven1, 10",
+        "Name": "Bremer­haven",
         "Einwohnerzahl": 110982,
         "Fläche in km² (2016)\n": 114070,
         "Ew./km² (2018)\n": 141017,
@@ -701,7 +701,7 @@
     },
     {
         "Rang (2019)\n": 70,
-        "Name": "Erlangen1",
+        "Name": "Erlangen",
         "Einwohnerzahl": 33471,
         "Fläche in km² (2016)\n": 50011,
         "Ew./km² (2018)\n": 68569,
@@ -721,7 +721,7 @@
     },
     {
         "Rang (2019)\n": 72,
-        "Name": "Trier1",
+        "Name": "Trier",
         "Einwohnerzahl": 81808,
         "Fläche in km² (2016)\n": 75526,
         "Ew./km² (2018)\n": 85210,
@@ -741,7 +741,7 @@
     },
     {
         "Rang (2019)\n": 74,
-        "Name": "Jena1",
+        "Name": "Jena",
         "Einwohnerzahl": 68377,
         "Fläche in km² (2016)\n": 80309,
         "Ew./km² (2018)\n": 81190,
@@ -751,7 +751,7 @@
     },
     {
         "Rang (2019)\n": 75,
-        "Name": "Remscheid1",
+        "Name": "Remscheid",
         "Einwohnerzahl": 103912,
         "Fläche in km² (2016)\n": 103276,
         "Ew./km² (2018)\n": 125912,
@@ -761,7 +761,7 @@
     },
     {
         "Rang (2019)\n": 76,
-        "Name": "Salzgitter1, 11",
+        "Name": "Salzgitter",
         "Einwohnerzahl": 45598,
         "Fläche in km² (2016)\n": 100667,
         "Ew./km² (2018)\n": 108872,
@@ -771,7 +771,7 @@
     },
     {
         "Rang (2019)\n": 77,
-        "Name": "Moers1",
+        "Name": "Moers",
         "Einwohnerzahl": 29646,
         "Fläche in km² (2016)\n": 34832,
         "Ew./km² (2018)\n": 45908,
@@ -781,7 +781,7 @@
     },
     {
         "Rang (2019)\n": 78,
-        "Name": "Siegen1",
+        "Name": "Siegen",
         "Einwohnerzahl": 37622,
         "Fläche in km² (2016)\n": 38787,
         "Ew./km² (2018)\n": 48210,
@@ -791,7 +791,7 @@
     },
     {
         "Rang (2019)\n": 79,
-        "Name": "Hildesheim1",
+        "Name": "Hildesheim",
         "Einwohnerzahl": 68679,
         "Fläche in km² (2016)\n": 72292,
         "Ew./km² (2018)\n": 94352,
@@ -811,32 +811,12 @@
     },
     {
         "Rang (2019)\n": 81,
-        "Name": "Kaiserslautern1",
+        "Name": "Kaiserslautern",
         "Einwohnerzahl": 65.89,
         "Fläche in km² (2016)\n": 62.761,
         "Ew./km² (2018)\n": 88.668,
         "Be­völ­ke­rungs­ent­wick­lung [%] (2019 ggü. 2018)\n": 100.696,
         "Großstadt erst­mals1\n": 98.745,
         "Bun­des­land\n": 99.351
-    },
-    {
-        "Rang (2019)\n": "Rang\n",
-        "Name": "Name\n",
-        "Einwohnerzahl": "Einwohnerzahl\n",
-        "Fläche in km² (2016)\n": "Fläche [km²] (2016)\n",
-        "Ew./km² (2018)\n": "Ew./km²(2018)\n",
-        "Be­völ­ke­rungs­ent­wick­lung [%] (2019 ggü. 2018)\n": "Be­völ­ke­rungs­ent­wick­lung [%] (2018 ggü. 2017)\n",
-        "Großstadt erst­mals1\n": "Großstadt erst­mals1\n",
-        "Bun­des­land\n": "Bun­des­land\n"
-    },
-    {
-        "Rang (2019)\n": "1939[2]\n",
-        "Name": 1950,
-        "Einwohnerzahl": 1960,
-        "Fläche in km² (2016)\n": 1970,
-        "Ew./km² (2018)\n": 1980,
-        "Be­völ­ke­rungs­ent­wick­lung [%] (2019 ggü. 2018)\n": 1990,
-        "Großstadt erst­mals1\n": 2000,
-        "Bun­des­land\n": 2010
     }
 ]
