@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
 const Profile = require("../models/Profile");
+const fs = require('fs')
 
 // TO DO - how to serialize user to get the user.id
 
@@ -11,6 +12,13 @@ router.get("/", ensureAuthenticated, (req, res) =>
   })
 );
 
+//return users within location filter parameters
+const locationFilter = (mainUser, restOfUsers) => {
+  const usersInArea = restOfUsers.filter((otherUser) => {
+    return otherUser.location === mainUser.location;
+  });
+  return usersInArea;
+};
 //calculate matches
 const score = (interests, otherInterests) => {
   let score = 0;
@@ -38,13 +46,17 @@ router.get("/:id", async function (req, res, next) {
     (u) => u.userId && u.userId.toString() !== id
   );
 
-  const scoredUsers = restOfUsers.map((u) => {
-    console.log(mainUser);
-    return {
-      score: score(mainUser.interests, u.interests),
-      user: u,
-    };
-  });
+
+
+  const scoredUsers = restOfUsers
+    .filter(otherUser => otherUser.location === mainUser.location)
+    .map((u) => {
+      console.log(mainUser);
+      return {
+        score: score(mainUser.interests, u.interests),
+        user: u,
+      };
+    });
 
   res.send(scoredUsers);
 });

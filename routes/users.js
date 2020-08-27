@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+const jwt = require("jsonwebtoken");
+const auth = require("../config/auth2");
 
 // User model
 const User = require("../models/User");
 
 // CRUD METHODS
 router
-  .get("/", async function (req, res, next) {
+  .get("/", auth, async function (req, res, next) {
     //we use async/await to wait for this to happen randomly
     await User.find()
       .then((allDocuments) => res.json(allDocuments)) //await should be called 'waitfor'
@@ -122,10 +124,29 @@ router.post("/register", (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   // Here we check the password
-  const user = await (await User.findOne({ email: email } ).select("-password"));
-  const accessToken = process.env.ACCESS_TOKEN
-  res.json(user);
+  const user = await User.findOne({ email: email });
+  const isValid = await checkPassword(user, password);
+  if (!isValid) {
+    res.send("Login Unsuccessful");
+  }
+  const token = createToken(user._id);
+  res.header("x-auth-token", token).json(user);
 });
+
+const createToken = (id) => {
+  return jwt.sign({ id: id }, process.env.SECRET);
+};
+
+const checkPassword = async (user, password) => {
+  try {
+    const result = await bcrypt.compare(password, user.password);
+    return result;
+  } catch (error) {
+    return false;
+  }
+};
+
+// .select("-password")
 
 module.exports = router;
 
