@@ -3,10 +3,12 @@ const expressLayouts = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
+const cors = require('cors')
 
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 // Passport config
 require("./config/passport")(passport);
