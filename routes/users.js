@@ -81,7 +81,7 @@ router.post("/login", async (req, res) => {
         res.send("Login Unsuccessful");
     }
     const token = createToken(user._id);
-    res.header("x-auth-token", token).json({name: user.name, email: user.email});
+    res.header("x-auth-token", token).json({name: user.name, email: user.email, token: token});
 });
 
 const createToken = (id) => {
