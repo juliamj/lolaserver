@@ -14,6 +14,7 @@ router.get("/", ensureAuthenticated, (req, res) =>
 );
 
 //return users within location filter parameters
+
 // const locationFilter = (mainUser, restOfUsers) => {
 //   const usersInArea = restOfUsers.filter((otherUser) => {
 //     return otherUser.location === mainUser.location;
@@ -28,6 +29,7 @@ router.get("/", ensureAuthenticated, (req, res) =>
 //   const matchingUsers = othersLearnLangs.includes(mainUserNativeLangs);
 //   console.log(matchingUsers)
 // };
+
 //calculate matches
 const score = (interests, otherInterests) => {
   let score = 0;
