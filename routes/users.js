@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const auth = require("../config/auth2");
 
@@ -130,7 +129,8 @@ router.post("/login", async (req, res) => {
     res.send("Login Unsuccessful");
   }
   const token = createToken(user._id);
-  res.header("x-auth-token", token).json(user);
+  console.log(token)
+  res.header("x-auth-token", token).json({token: token});
 });
 
 const createToken = (id) => {
