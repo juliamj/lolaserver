@@ -3,12 +3,15 @@ const expressLayouts = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
-const cors = require('cors')
+const cors = require("cors");
 
 const app = express();
 
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors());
+
+//For multer to use public folder
+app.use("/public", express.static("public"));
 
 // Passport config
 require("./config/passport")(passport);
@@ -23,6 +26,10 @@ app.set("view engine", "ejs");
 
 //Bodyparser Middlware
 app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
 
 // //Express Session
 // app.use(
@@ -54,7 +61,6 @@ app.use("/users", require("./routes/users"));
 app.use("/dashboard", require("./routes/dashboard"));
 app.use("/matches", require("./routes/matches"));
 app.use("/profiles", require("./routes/profiles"));
-
 
 const PORT = process.env.PORT || 5000;
 
