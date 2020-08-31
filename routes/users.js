@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-<<<<<<< HEAD
-=======
 // const passport = require("passport");
->>>>>>> 7a156037c084d8ccde746bcb23de32ddce064ff1
 const jwt = require("jsonwebtoken");
 const auth = require("../config/auth2");
 const validateUser = require("../models/ValidateUser")
@@ -47,24 +44,6 @@ router
     });
 
 // Register page
-<<<<<<< HEAD
-router.get("/register", (req, res) => res.render("register"));
-
-
-
-// Login Handle
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  // Here we check the password
-  const user = await User.findOne({ email: email });
-  const isValid = await checkPassword(user, password);
-  if (!isValid) {
-    res.send("Login Unsuccessful");
-  }
-  const token = createToken(user._id);
-  console.log(token)
-  res.header("x-auth-token", token).json({token: token});
-=======
 router.post("/register", async (req, res) => {
     // validate the request body first
     const { error } = validateUser(req.body);
@@ -102,8 +81,7 @@ router.post("/login", async (req, res) => {
         res.send("Login Unsuccessful");
     }
     const token = createToken(user._id);
-    res.header("x-auth-token", token).json({name: user.name, email: user.email});
->>>>>>> 7a156037c084d8ccde746bcb23de32ddce064ff1
+    res.header("x-auth-token", token).json({name: user.name, email: user.email, token: token});
 });
 
 const createToken = (id) => {
@@ -120,7 +98,6 @@ const checkPassword = async (user, password) => {
 };
 
 module.exports = router;
-<<<<<<< HEAD
 
 // // Login Handle
 // router.post('/login', (req, res, next) => {
@@ -209,5 +186,3 @@ module.exports = router;
 //     });
 //   }
 // });
-=======
->>>>>>> 7a156037c084d8ccde746bcb23de32ddce064ff1
