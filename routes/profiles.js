@@ -39,6 +39,44 @@ var upload = multer({
   },
 });
 
+//TRYING TO NOT CREATE NEW USER WITH PROFILE PIC UPLOAD
+router.post("/edit/:id", upload.single("profileImg"), async (req, res, next) => {
+  const { id } = req.params;
+    const { body } = req;
+    
+  const url = req.protocol + "://" + req.get("host");
+  const user = await Profile.findByIdAndUpdate(id, body, {
+    new: true,
+    useFindAndModify: false,
+    profileImg: url + "/public/" + req.file.filename,
+  })
+      .then((results) => res.json(results))
+      .catch((err) => next(new Error(err)));
+  // const user = new Profile({
+  //   _id: new mongoose.Types.ObjectId(),
+  //   name: req.body.name,
+  //   profileImg: url + "/public/" + req.file.filename,
+  // });
+  user
+    .save()
+    .then((result) => {
+      res.status(201).json({
+        message: "Profile Image uploaded successfully!",
+        userUpdated: {
+          profileImg: result.profileImg,
+        },
+      });
+    })
+    .catch((err) => {
+      console.log(err),
+        res.status(500).json({
+          error: err,
+        });
+    });
+});
+
+
+//REFERENCE FROM TUT
 router.post("/user-profile", upload.single("profileImg"), (req, res, next) => {
   const url = req.protocol + "://" + req.get("host");
   const user = new Profile({
