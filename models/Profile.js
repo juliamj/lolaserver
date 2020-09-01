@@ -1,6 +1,20 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// const ProfileImage = new mongoose.Schema(
+//   {
+//     avatar: {
+//       type: String,
+//       required: true,
+//     },
+//     userId: {
+//       type: Schema.Types.ObjectId,
+//       required: true,
+//     },
+//   },
+//   { timestamps: true }
+// );
+
 const ProfileSchema = new mongoose.Schema({
   userId: {
     type: Schema.Types.ObjectId,

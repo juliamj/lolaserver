@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require("uuid"); //how to import this correctly?
 
 // User model
 const Profile = require("../models/Profile");
+const ProfileImage = require("../models/Profile");
 
 // IMAGE UPLOAD STUFF
 //make public directory where image go
@@ -40,77 +41,67 @@ var upload = multer({
 });
 
 //TRYING TO NOT CREATE NEW USER WITH PROFILE PIC UPLOAD
-router.post("/edit/:id", upload.single("profileImg"), async (req, res, next) => {
+//put request, if request if there's a file then transform it first into a link, store it, get the link and put that link into the database instead of the old
+//post request uploads the image and comes back to the front end
+//put request is editing the profile (just another field in the form)
+//create an avatar image in an image database which connects to the user with the userId???
+// router.post("/edit/:id", upload.single("profileImg"), async (req, res, next) => {
+//   const { id } = req.params;
+//     const { body } = req;
+
+//   const url = req.protocol + "://" + req.get("host");
+//   const user = await Profile.findByIdAndUpdate(id, body, {
+//     new: true,
+//     useFindAndModify: false,
+//     profileImg: url + "/public/" + req.file.filename,
+//   })
+//       .then((results) => res.json(results))
+//       .catch((err) => next(new Error(err)));
+//   user
+//     .save()
+//     .then((result) => {
+//       res.status(201).json({
+//         message: "Profile Image uploaded successfully!",
+//         userUpdated: {
+//           profileImg: result.profileImg,
+//         },
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err),
+//         res.status(500).json({
+//           error: err,
+//         });
+//     });
+// });
+
+// //REFERENCE FROM TUT
+//make image URLs relative to where they are
+router.put("/edit/:id", upload.single("profileImg"), async (req, res, next) => {
   const { id } = req.params;
-    const { body } = req;
-    
-  const url = req.protocol + "://" + req.get("host");
-  const user = await Profile.findByIdAndUpdate(id, body, {
+ 
+  const changes = {
+    profileImg: req.file.path
+  }
+  const user = await Profile.findOneAndUpdate({userId: id}, changes, {
     new: true,
     useFindAndModify: false,
-    profileImg: url + "/public/" + req.file.filename,
   })
-      .then((results) => res.json(results))
-      .catch((err) => next(new Error(err)));
-  // const user = new Profile({
-  //   _id: new mongoose.Types.ObjectId(),
-  //   name: req.body.name,
-  //   profileImg: url + "/public/" + req.file.filename,
-  // });
-  user
-    .save()
-    .then((result) => {
-      res.status(201).json({
-        message: "Profile Image uploaded successfully!",
-        userUpdated: {
-          profileImg: result.profileImg,
-        },
-      });
-    })
-    .catch((err) => {
-      console.log(err),
-        res.status(500).json({
-          error: err,
-        });
-    });
+  if(!user) {
+    console.log({user})
+    res.status(400).send({success:false})
+  } else {
+    res.status(200).json({
+      message: "Profile Image uploaded successfully!",
+      profileImgCreated: {
+        _id: user._id,
+        profileImg: user.profileImg,
+      }
+    });  
+  }
+
+
 });
-
-
-//REFERENCE FROM TUT
-router.post("/user-profile", upload.single("profileImg"), (req, res, next) => {
-  const url = req.protocol + "://" + req.get("host");
-  const user = new Profile({
-    _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
-    profileImg: url + "/public/" + req.file.filename,
-  });
-  user
-    .save()
-    .then((result) => {
-      res.status(201).json({
-        message: "Profile Image uploaded successfully!",
-        userCreated: {
-          _id: result._id,
-          profileImg: result.profileImg,
-        },
-      });
-    })
-    .catch((err) => {
-      console.log(err),
-        res.status(500).json({
-          error: err,
-        });
-    });
-});
-
-// router.get("/", (req, res, next) => {
-//   User.find().then((data) => {
-//     res.status(200).json({
-//       message: "User list retrieved successfully!",
-//       users: data,
-//     });
-//   });
-// });
 
 // CRUD METHODS
 router
