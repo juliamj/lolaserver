@@ -11,14 +11,8 @@ const User = require("../models/User");
 
 // CRUD METHODS
 router
-    .get("/", auth, async function (req, res, next) {
-        //we use async/await to wait for this to happen randomly
-        await User.find()
-            .then((allDocuments) => res.json(allDocuments)) //await should be called 'waitfor'
-            .catch((err) => next(new Error(err)));
-    })
 
-    .get("/user/:id", async function (req, res, next) {
+    .get("/:id", async function (req, res, next) {
         const { id } = req.params;
         await User.findById(id)
             .then((results) => res.json(results))
@@ -81,7 +75,15 @@ router.post("/login", async (req, res) => {
         res.send("Login Unsuccessful");
     }
     const token = createToken(user._id);
-    res.header("x-auth-token", token).json({name: user.name, email: user.email, token: token});
+
+    res.header("x-auth-token", token)
+    console.log(res.header());
+    res.json({
+        _id: user._id,
+        name: user.name, 
+        email: user.email
+    });
+
 });
 
 const createToken = (id) => {
