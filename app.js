@@ -2,7 +2,6 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
-const passport = require("passport");
 const cors = require("cors");
 
 const app = express();
@@ -12,9 +11,6 @@ app.use(cors());
 
 //For multer to use public folder
 app.use("/public", express.static("public"));
-
-// Passport config
-require("./config/passport")(passport);
 
 //DB Config
 require("dotenv").config();
