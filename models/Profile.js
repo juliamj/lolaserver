@@ -1,14 +1,28 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// const ProfileImage = new mongoose.Schema(
+//   {
+//     avatar: {
+//       type: String,
+//       required: true,
+//     },
+//     userId: {
+//       type: Schema.Types.ObjectId,
+//       required: true,
+//     },
+//   },
+//   { timestamps: true }
+// );
+
 const ProfileSchema = new mongoose.Schema({
   userId: {
     type: Schema.Types.ObjectId,
     required: false,
   },
   name: {
-      type: String,
-      required: false,
+    type: String,
+    required: false,
   },
   gender: {
     type: String,
@@ -20,10 +34,8 @@ const ProfileSchema = new mongoose.Schema({
     max: 100,
     required: false,
   },
-  avatarURL: {
+  profileImg: {
     type: String,
-    min: 8,
-    max: 100,
     required: false,
   },
   birthday: {
@@ -38,20 +50,14 @@ const ProfileSchema = new mongoose.Schema({
   },
   nativelang: {
     type: Array,
-    min: 8,
-    max: 30,
     required: false,
   },
   otherlangs: {
     type: Array,
-    min: 8,
-    max: 30,
     required: false,
   },
   learnlangs: {
     type: Array,
-    min: 8,
-    max: 30,
     required: false,
   },
   interests: {

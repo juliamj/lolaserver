@@ -1,4 +1,6 @@
 const express = require("express");
+
+
 const cors = require("cors");
 
 const app = express();
@@ -12,6 +14,10 @@ require("./database/client");
 
 //Bodyparser Middlware
 app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
 
 //Routes
 app.get("/", require("./routes/index"));
