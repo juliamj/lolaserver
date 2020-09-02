@@ -116,6 +116,7 @@ router
       .then((results) => res.json(results))
       .catch((err) => next(new Error(err)));
   })
+  
   .put("/:id", async function (req, res, next) {
     const { id } = req.params;
     const { body } = req;
@@ -126,6 +127,7 @@ router
       .then((updatedDocument) => res.json(updatedDocument))
       .catch((err) => next(new Error(err)));
   })
+
   .post("/", async (req, res, next) => {
     await Profile.create({ ...req.body })
       .then((bb) => res.json(bb)) //await should be called 'waitfor'
