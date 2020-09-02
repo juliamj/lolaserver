@@ -77,9 +77,10 @@ var upload = multer({
 
 // //REFERENCE FROM TUT
 //make image URLs relative to where they are
-router.put("/edit/:id", upload.single("profileImg"), async (req, res, next) => {
+router.put("/:id", upload.single("profileImg"), async (req, res, next) => {
   const { id } = req.params;
- 
+  let token = req.headers["x-access-token"] || req.headers["authorization"];
+  console.log(req.params, req.body, token)
   const changes = {
     profileImg: req.file.path
   }
@@ -99,8 +100,6 @@ router.put("/edit/:id", upload.single("profileImg"), async (req, res, next) => {
       }
     });  
   }
-
-
 });
 
 // CRUD METHODS
