@@ -112,10 +112,17 @@ router
   })
   .get('/:id', async function (req, res, next) {
     const { id } = req.params;
-    await Profile.findById(id)
+    await Profile.findOne({userId : id})
       .then(results => res.json(results))
       .catch(err => next(new Error(err)));
   })
+
+  // .get('/:id', async function (req, res, next) {
+  //   const { id } = req.params;
+  //   await Profile.findById({userId : id})
+  //     .then(results => res.json(results))
+  //     .catch(err => next(new Error(err)));
+  // })
 
   .put('/:id', async function (req, res, next) {
     const { id } = req.params;
