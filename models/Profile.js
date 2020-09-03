@@ -18,12 +18,12 @@ const Schema = mongoose.Schema;
 const ProfileSchema = new mongoose.Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    required: false,
+    required: true,
   },
-  name: {
-    type: String,
-    required: false,
-  },
+  // name: {
+  //   type: String,
+  //   required: false,
+  // },
   gender: {
     type: String,
     required: false,
@@ -52,10 +52,10 @@ const ProfileSchema = new mongoose.Schema({
     type: Array,
     required: false,
   },
-  otherlangs: {
-    type: Array,
-    required: false,
-  },
+  // otherlangs: {
+  //   type: Array,
+  //   required: false,
+  // },
   learnlangs: {
     type: Array,
     required: false,
