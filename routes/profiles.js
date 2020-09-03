@@ -135,12 +135,4 @@ router
       .catch(err => console.log('ahhhhhhhh', err));
   });
 
-//   .delete("/:id", async function (req, res) {
-//     const { id } = req.params;
-//     await Profile.findByIdAndDelete(id, { useFindAndModify: false })
-//       .then((response) => res.json(response))
-//       .catch((err) => next(new Error(err)));
-//     res.send(`Deleted Profile ${id}`);
-//   });
-
 module.exports = router;
