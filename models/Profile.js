@@ -42,6 +42,18 @@ const ProfileSchema = new mongoose.Schema({
     type: Date,
     required: false,
   },
+  days: {
+    type: Number,
+    required: false,
+  },
+  months: {
+    type: String,
+    required: false,
+  },
+  years: {
+    type: Number,
+    required: false,
+  },
   freetext: {
     type: String,
     min: 8,
