@@ -24,6 +24,10 @@ const ProfileSchema = new mongoose.Schema({
   //   type: String,
   //   required: false,
   // },
+  debugName: {
+    type: String,
+    required: false,
+  },
   gender: {
     type: String,
     required: false,
