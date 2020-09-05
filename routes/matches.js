@@ -3,7 +3,6 @@ const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 const Profile = require('../models/Profile');
 const fs = require('fs');
-const cities = require('../data/cities.json');
 
 router.get('/', ensureAuthenticated, (req, res) =>
   res.render('matches', {
