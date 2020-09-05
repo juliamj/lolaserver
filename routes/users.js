@@ -8,6 +8,7 @@ const validateUser = require('../models/ValidateUser');
 
 // User model
 const User = require('../models/User');
+const Profile = require('../models/Profile');
 
 // CRUD METHODS
 //for testing only
@@ -60,6 +61,14 @@ router.post('/register', async (req, res) => {
   });
   user.password = await bcrypt.hash(user.password, 10);
   await user.save();
+
+ 
+  const profile = new Profile({
+    userId: user._id,
+    debugName: user.name + ' ' + user.email,
+  });
+  
+  await profile.save();
 
   const token = createToken(user._id);
   res.header('x-auth-token', token).send({

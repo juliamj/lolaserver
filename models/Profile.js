@@ -24,6 +24,10 @@ const ProfileSchema = new mongoose.Schema({
   //   type: String,
   //   required: false,
   // },
+  debugName: {
+    type: String,
+    required: false,
+  },
   gender: {
     type: String,
     required: false,
@@ -40,6 +44,18 @@ const ProfileSchema = new mongoose.Schema({
   },
   birthday: {
     type: Date,
+    required: false,
+  },
+  days: {
+    type: Number,
+    required: false,
+  },
+  months: {
+    type: String,
+    required: false,
+  },
+  years: {
+    type: Number,
     required: false,
   },
   freetext: {
