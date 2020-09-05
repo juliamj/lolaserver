@@ -77,30 +77,30 @@ var upload = multer({
 
 // //REFERENCE FROM TUT
 //make image URLs relative to where they are
-// router.put("/:id", upload.single("profileImg"), async (req, res, next) => {
-//   const { id } = req.params;
-//   let token = req.headers["x-auth-token"] || req.headers["authorization"];
-//   console.log(req.params, req.body, token)
-//   const changes = {
-//     profileImg: req.file.path
-//   }
-//   const user = await Profile.findOneAndUpdate({userId: id}, changes, {
-//     new: true,
-//     useFindAndModify: false,
-//   })
-//   if(!user) {
-//     console.log({user})
-//     res.status(400).send({success:false})
-//   } else {
-//     res.status(200).json({
-//       message: "Profile Image uploaded successfully!",
-//       profileImgCreated: {
-//         _id: user._id,
-//         profileImg: user.profileImg,
-//       }
-//     });
-//   }
-// });
+router.put("/:id", upload.single("profileImg"), async (req, res, next) => {
+  const { id } = req.params;
+  let token = req.headers["x-auth-token"] || req.headers["authorization"];
+  console.log(req.params, req.body, token)
+  const changes = {
+    profileImg: req.file.path
+  }
+  const user = await Profile.findOneAndUpdate({userId: id}, changes, {
+    new: true,
+    useFindAndModify: false,
+  })
+  if(!user) {
+    console.log({user})
+    res.status(400).send({success:false})
+  } else {
+    res.status(200).json({
+      message: "Image uploaded successfully!",
+      profileImgCreated: {
+        _id: user._id,
+        profileImg: user.profileImg,
+      }
+    });
+  }
+});
 
 // CRUD METHODS
 router
