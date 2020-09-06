@@ -76,20 +76,10 @@ const ProfileSchema = new mongoose.Schema({
     max: 1000,
     required: false,
   },
-  freetextTest: {
-    type: String,
-    min: 8,
-    max: 1000,
-    required: false,
-  },
   nativelang: {
     type: Array,
     required: false,
   },
-  // otherlangs: {
-  //   type: Array,
-  //   required: false,
-  // },
   learnlangs: {
     type: Array,
     required: false,
