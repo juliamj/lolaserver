@@ -64,6 +64,24 @@ const ProfileSchema = new mongoose.Schema({
     max: 1000,
     required: false,
   },
+  freetext2: {
+    type: String,
+    min: 8,
+    max: 1000,
+    required: false,
+  },
+  freetext3: {
+    type: String,
+    min: 8,
+    max: 1000,
+    required: false,
+  },
+  freetextTest: {
+    type: String,
+    min: 8,
+    max: 1000,
+    required: false,
+  },
   nativelang: {
     type: Array,
     required: false,
