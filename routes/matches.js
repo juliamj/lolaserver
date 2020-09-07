@@ -51,27 +51,12 @@ router.get('/:id', async function (req, res, next) {
   const mainUser = users.filter(u => u.userId && u.userId.toString() === id)[0]; //undefined
   const restOfUsers = users.filter(u => u.userId && u.userId.toString() !== id);
 
-  // console.log(id, mainUser, restOfUsers);
-  // console.log(restOfUsers.map(info => info.nativelang));
-
-  //rou means 'Rest of Users'
-  const roulearnlangs = restOfUsers.map(data => data.learnlangs);
-  // const rounativelangs = restOfUsers.map(data => data.nativelang);
-  //mu means 'Main User'
-  // const mulearnlangs = mainUser.map(data => data.learnlangs)
-  // const munativelangs = mainUser.map(data => data.nativelang)
-  // console.log(mainUser);
-
-  const compare = (arr1, arr2) => {
-    return arr1.some(item => arr2.includes(item));
-  };
-
-  console.log(compare(roulearnlangs, mainUser.nativelang));
-
-  const scoredUsers =
-    restOfUsers
-      .filter(otherUser => otherUser.location === mainUser.location)
-      .filter((otherUser) => otherUser.learnlangs.some(lang => mainUser.nativelang.includes(lang)))
+  const scoredUsers = restOfUsers
+    .filter(otherUser => otherUser.location === mainUser.location)
+    //compares the learning languages of other users with the native languages of the main user
+    .filter(otherUser =>
+      otherUser.learnlangs.some(lang => mainUser.nativelang.includes(lang))
+    )
     .map(u => {
       return {
         score: score(mainUser.interests, u.interests),
