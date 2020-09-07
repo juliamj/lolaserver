@@ -65,7 +65,7 @@ router.post('/register', async (req, res) => {
  
   const profile = new Profile({
     userId: user._id,
-    debugName: user.name + ' ' + user.email,
+    name: user.name,
   });
   
   await profile.save();

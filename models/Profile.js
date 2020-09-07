@@ -24,7 +24,7 @@ const ProfileSchema = new mongoose.Schema({
   //   type: String,
   //   required: false,
   // },
-  debugName: {
+  name: {
     type: String,
     required: false,
   },

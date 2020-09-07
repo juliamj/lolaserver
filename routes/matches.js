@@ -51,12 +51,27 @@ router.get('/:id', async function (req, res, next) {
   const mainUser = users.filter(u => u.userId && u.userId.toString() === id)[0]; //undefined
   const restOfUsers = users.filter(u => u.userId && u.userId.toString() !== id);
 
-  console.log(id, mainUser, restOfUsers);
+  // console.log(id, mainUser, restOfUsers);
+  // console.log(restOfUsers.map(info => info.nativelang));
 
-  const scoredUsers = restOfUsers
-    .filter(otherUser => otherUser.location === mainUser.location)
-    //iterate over the learnlang and nativelang to match from the arrays FOR LOOP?!
-    // .filter((otherUser) => otherUser.learnlang === mainUser.nativelang)
+  //rou means 'Rest of Users'
+  const roulearnlangs = restOfUsers.map(data => data.learnlangs);
+  // const rounativelangs = restOfUsers.map(data => data.nativelang);
+  //mu means 'Main User'
+  // const mulearnlangs = mainUser.map(data => data.learnlangs)
+  // const munativelangs = mainUser.map(data => data.nativelang)
+  // console.log(mainUser);
+
+  const compare = (arr1, arr2) => {
+    return arr1.some(item => arr2.includes(item));
+  };
+
+  console.log(compare(roulearnlangs, mainUser.nativelang));
+
+  const scoredUsers =
+    restOfUsers
+      .filter(otherUser => otherUser.location === mainUser.location)
+      .filter((otherUser) => otherUser.learnlangs.some(lang => mainUser.nativelang.includes(lang)))
     .map(u => {
       return {
         score: score(mainUser.interests, u.interests),
