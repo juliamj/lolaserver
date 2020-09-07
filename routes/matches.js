@@ -50,12 +50,12 @@ router.get('/:id', async function (req, res, next) {
   const mainUser = users.filter(u => u.userId && u.userId.toString() === id)[0]; //undefined
   const restOfUsers = users.filter(u => u.userId && u.userId.toString() !== id);
 
-  console.log(id, mainUser, restOfUsers);
-
   const scoredUsers = restOfUsers
     .filter(otherUser => otherUser.location === mainUser.location)
-    //iterate over the learnlang and nativelang to match from the arrays FOR LOOP?!
-    // .filter((otherUser) => otherUser.learnlang === mainUser.nativelang)
+    //compares the learning languages of other users with the native languages of the main user
+    .filter(otherUser =>
+      otherUser.learnlangs.some(lang => mainUser.nativelang.includes(lang))
+    )
     .map(u => {
       return {
         score: score(mainUser.interests, u.interests),
