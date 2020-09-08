@@ -36,9 +36,9 @@ router.get('/:id', async function (req, res) {
   const scoredUsers = restOfUsers
     .filter(otherUser => otherUser.location === mainUser.location)
     // .then(otherUser => console.log(otherUser)) //compares the learning languages of other users with the native languages of the main user
-    // .filter(otherUser =>
-    //   otherUser.learnlangs.some(lang => mainUser.nativelang.includes(lang))
-    // )
+    .filter(otherUser =>
+      otherUser.learnlangs.some(lang => mainUser.nativelang.includes(lang))
+    )
     .map(u => {
       return {
         score: score(mainUser.interests, u.interests),
