@@ -58,7 +58,7 @@ const ProfileSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  freetext: {
+  freetext1: {
     type: String,
     min: 8,
     max: 1000,
