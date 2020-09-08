@@ -3,7 +3,8 @@ const cors = require("cors");
 
 
 const app = express();
-app.options('*', cors({ origin: true, exposedHeaders: ["x-auth-token"]}))
+
+app.use(cors({ origin: true, exposedHeaders: ["x-auth-token"]}))
 app.use(express.json())
 
 //DB Config
