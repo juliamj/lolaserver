@@ -85,7 +85,6 @@ const ProfileSchema = new mongoose.Schema({
     required: false,
   },
   interests: {
-    //how to structure the interests? do we put the possibilities for interests here?
     type: Array,
     required: false,
   },
