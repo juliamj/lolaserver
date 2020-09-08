@@ -49,4 +49,5 @@ router.get('/:id', async function (req, res) {
   res.send(scoredUsers);
 });
 
+// console.log(scoredUsers)
 module.exports = router;
