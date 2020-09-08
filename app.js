@@ -5,6 +5,10 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({ origin: "http://localhost:3000", exposedHeaders: ["x-auth-token"]}))
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    next();
+});
 app.use(express.json())
 
 //DB Config
