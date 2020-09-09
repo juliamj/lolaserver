@@ -20,14 +20,15 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const fileName = file.originalname.toLowerCase().split(' ').join('-');
+
     cb(null, uuidv4() + '-' + fileName); //uuid is not defined?
   }
 });
 
-// const upload = multer({ storage: storage }).single("file");
+const upload = multer({ storage: storage }).single('file');
 
 // upload formatting logic for multer
-// var upload = multer({
+// var multerConfig = multer({
 //   storage: storage,
 //   fileFilter: (req, file, cb) => {
 //     if (
@@ -40,6 +41,7 @@ const storage = multer.diskStorage({
 //       cb(null, false);
 //       return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
 //     }
+
 //   }
 // });
 
@@ -48,7 +50,7 @@ const storage = multer.diskStorage({
 router.post('/upload/:id', async (req, res, next) => {
   // upload.single('profileImg');
   console.log('File upload started');
-  
+
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {
       console.log(err);
@@ -57,33 +59,30 @@ router.post('/upload/:id', async (req, res, next) => {
       console.log(err);
       return res.status(500).json(err);
     }
-  });
-
-  const { id } = req.params;
-  let token = req.headers['x-auth-token'] || req.headers['authorization'];
-  // console.log(req.params, req.body, token)
-  console.log(req.file)
-  return res.send("Success")
-  const changes = {
-    profileImg: req.path
-  };
-  console.log(req.file);
-  const user = await Profile.findOneAndUpdate({ userId: id }, changes, {
-    new: true,
-    useFindAndModify: false
-  });
-  if (!user) {
-    // console.log({user})
-    res.status(400).send({ success: false });
-  } else {
-    res.status(200).json({
-      message: 'Image uploaded successfully!',
-      profileImgCreated: {
-        _id: user._id,
-        profileImg: user.profileImg
+    console.log(req.file);
+    const { id } = req.params;
+    const changes = {
+      profileImg: req.file.filename
+    };
+    console.log(req.file);
+    Profile.findOneAndUpdate({ userId: id }, changes, {
+      new: true,
+      useFindAndModify: false
+    }).then(user => {
+      if (!user) {
+        // console.log({user})
+        res.status(400).send({ success: false });
+      } else {
+        res.status(200).json({
+          message: 'Image uploaded successfully!',
+          profileImgCreated: {
+            _id: user._id,
+            profileImg: req.file.filename
+          }
+        });
       }
     });
-  }
+  });
 });
 
 // CRUD METHODS

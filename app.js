@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 //     extended: false
 // }));
 
+//Serve Static Images
+app.use(express.static('public'));
+
 //Routes
 app.get("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
